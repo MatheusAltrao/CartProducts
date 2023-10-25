@@ -1,9 +1,9 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { CartContext } from "@/context/CartContext";
 import { CheckCircle } from "@phosphor-icons/react";
-import { Minus } from "@phosphor-icons/react/dist/ssr/Minus";
-import { Plus } from "@phosphor-icons/react/dist/ssr/Plus";
 import { Star } from "@phosphor-icons/react/dist/ssr/Star";
+import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { useContext, useState } from "react";
 interface ProductProps {
   product: any;
@@ -12,7 +12,7 @@ interface ProductProps {
 const Product = ({ product }: ProductProps) => {
   const [isAdd, setIsAdd] = useState(false);
 
-  function startInterval() {
+  function showAddedProductToCart() {
     setIsAdd(true);
 
     const interval = setInterval(() => {
@@ -30,7 +30,7 @@ const Product = ({ product }: ProductProps) => {
 
   const handleAddToCart = () => {
     addProductToCart({ ...product });
-    startInterval();
+    showAddedProductToCart();
   };
 
   return (
@@ -53,30 +53,30 @@ const Product = ({ product }: ProductProps) => {
       </div>
 
       <div className="flex items-center gap-1 text-zinc-100 mb-4">
-        <button className=" border-zinc-700 border p-1.5 rounded hover:border-zinc-200  transition-colors  ">
-          {" "}
-          <Minus size={16} />{" "}
-        </button>
+        <Button size="icon" variant="outline">
+          <Minus size={16} />
+        </Button>
         <p className="text-[1.25rem] w-11 text-center">{product.quantity}</p>
-        <button className=" border-zinc-700 border p-1.5 rounded hover:border-zinc-200 transition-colors  ">
-          {" "}
-          <Plus size={16} />{" "}
-        </button>
+
+        <Button size="icon" variant="outline">
+          <Plus size={16} />
+        </Button>
       </div>
 
       <div className="flex items-center justify-between">
         <span className="text-2xl font-bold text-zinc-50">{formatedPrice}</span>
-        <button
-          onClick={handleAddToCart}
-          className={`${
-            isAdd ? " button-secondary" : " button-primary "
-          } w-[120px]`}>
+        <Button
+          variant="outline"
+          className="w-[130px]"
+          onClick={handleAddToCart}>
           {isAdd ? (
-            <CheckCircle className="text-green-500" size={22} />
+            <CheckCircle weight="fill" className="text-green-500" size={22} />
           ) : (
-            "   Add to cart"
+            <div className="flex items-center justify-center gap-2">
+              Adicionar <ShoppingCart size={20} />
+            </div>
           )}
-        </button>
+        </Button>
       </div>
     </div>
   );
