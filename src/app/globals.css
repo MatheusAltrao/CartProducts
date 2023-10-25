@@ -2,26 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.hero {
+  @apply p-2   text-center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-500 font-bold;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.button-gradient {
+  @apply bg-gradient-to-r from-violet-700 to-violet-900 hover:opacity-80 transition-opacity;
+  @apply rounded flex items-center justify-center text-zinc-100 h-10;
 }
