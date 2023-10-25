@@ -10,7 +10,12 @@
   @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-500 font-bold;
 }
 
-.button-gradient {
+.button-primary {
   @apply bg-gradient-to-r from-violet-700 to-violet-900 hover:opacity-80 transition-opacity;
+  @apply rounded flex items-center justify-center text-zinc-100 h-10;
+}
+
+.button-secondary {
+  @apply border-violet-700 border bg-transparent hover:opacity-80 transition-opacity;
   @apply rounded flex items-center justify-center text-zinc-100 h-10;
 }

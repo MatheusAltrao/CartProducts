@@ -1,23 +1,42 @@
+"use client";
+import { CartContext } from "@/context/CartContext";
+import { CheckCircle } from "@phosphor-icons/react";
 import { Minus } from "@phosphor-icons/react/dist/ssr/Minus";
 import { Plus } from "@phosphor-icons/react/dist/ssr/Plus";
 import { Star } from "@phosphor-icons/react/dist/ssr/Star";
-
+import { useContext, useState } from "react";
 interface ProductProps {
-  name: string;
-  quantity: number;
-  price: number;
+  product: any;
 }
 
-const Product = ({ name, quantity, price }: ProductProps) => {
+const Product = ({ product }: ProductProps) => {
+  const [isAdd, setIsAdd] = useState(false);
+
+  function startInterval() {
+    setIsAdd(true);
+
+    const interval = setInterval(() => {
+      setIsAdd(false);
+      clearInterval(interval);
+    }, 2000);
+  }
+
   const formatedPrice = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
-  }).format(price);
+  }).format(product.price);
+
+  const { addProductToCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    addProductToCart({ ...product });
+    startInterval();
+  };
 
   return (
     <div className="p-5 w-[300px] border border-zinc-700 rounded hover:border-violet-800 transition-colors">
       <h3 className="font-semibold text-xl tracking-tight text-zinc-200">
-        {name}
+        {product.name}
       </h3>
       <div className="flex items-center mt-2.5 mb-5">
         <div className="flex items-end gap-1">
@@ -38,7 +57,7 @@ const Product = ({ name, quantity, price }: ProductProps) => {
           {" "}
           <Minus size={16} />{" "}
         </button>
-        <p className="text-[1.25rem] w-11 text-center">{quantity}</p>
+        <p className="text-[1.25rem] w-11 text-center">{product.quantity}</p>
         <button className=" border-zinc-700 border p-1.5 rounded hover:border-zinc-200 transition-colors  ">
           {" "}
           <Plus size={16} />{" "}
@@ -47,9 +66,17 @@ const Product = ({ name, quantity, price }: ProductProps) => {
 
       <div className="flex items-center justify-between">
         <span className="text-2xl font-bold text-zinc-50">{formatedPrice}</span>
-        <a href="#" className="button-gradient w-[120px] ">
-          Add to cart
-        </a>
+        <button
+          onClick={handleAddToCart}
+          className={`${
+            isAdd ? " button-secondary" : " button-primary "
+          } w-[120px]`}>
+          {isAdd ? (
+            <CheckCircle className="text-green-500" size={22} />
+          ) : (
+            "   Add to cart"
+          )}
+        </button>
       </div>
     </div>
   );

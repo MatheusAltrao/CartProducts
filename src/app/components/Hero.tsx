@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className=" h-[95vh] flex items-center text-center flex-col w-full">
+    <div className=" h-[70vh] flex items-center text-center flex-col w-full">
       <h1 className="text-[40px] font-semibold text-zinc-300 pt-32">
         {" "}
         Variedades de itens que <span className="text-gradient">
@@ -14,7 +14,7 @@ const Hero = () => {
         deslumbrantes até relógios de alta qualidade
       </p>
 
-      <button className="button-gradient w-[354px]">Ver Produtos</button>
+      <button className="button-primary w-[354px]">Ver Produtos</button>
     </div>
   );
 };

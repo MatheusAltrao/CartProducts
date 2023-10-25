@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Product from "./components/Product";
 
 export default function Home() {
-  const [products, setProducts] = useState([
+  const products = [
     { id: 1, name: "Teclado", quantity: 1, price: 59.99 },
     { id: 2, name: "Mouse", quantity: 1, price: 39.99 },
     { id: 3, name: "Headset", quantity: 1, price: 89.99 },
@@ -16,11 +15,11 @@ export default function Home() {
     { id: 7, name: "Tablet", quantity: 1, price: 159.99 },
     { id: 8, name: "Câmera", quantity: 1, price: 129.99 },
     { id: 9, name: "Fone de Ouvido", quantity: 1, price: 49.99 },
-  ]);
+  ];
 
   return (
     <div className="bg-zinc-950 min-h-screen w-full pb-20">
-      <div className="w-full max-w-[1250px] px-4 mx-auto">
+      <div className="w-full max-w-[1250px] px-8 mx-auto">
         <Header />
         <Hero />
 
@@ -37,12 +36,7 @@ export default function Home() {
 
           <div className="flex items-center justify-center gap-6 flex-wrap">
             {products.map((product) => (
-              <Product
-                key={product.id}
-                name={product.name}
-                quantity={product.quantity}
-                price={product.price}
-              />
+              <Product key={product.id} product={product} />
             ))}
           </div>
         </div>
