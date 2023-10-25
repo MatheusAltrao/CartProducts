@@ -21,3 +21,12 @@ button {
 .button-secondary {
   @apply border-violet-700 border bg-transparent;
 }
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 9999px;
+}
