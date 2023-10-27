@@ -10,6 +10,8 @@ interface ProductProps {
 }
 
 const Product = ({ product }: ProductProps) => {
+  const { addProductToCart } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(1);
   const [isAdd, setIsAdd] = useState(false);
 
   function showAddedProductToCart() {
@@ -26,11 +28,17 @@ const Product = ({ product }: ProductProps) => {
     currency: "BRL",
   }).format(product.price);
 
-  const { addProductToCart } = useContext(CartContext);
-
   const handleAddToCart = () => {
-    addProductToCart({ ...product });
+    addProductToCart({ ...product, quantity });
     showAddedProductToCart();
+  };
+
+  const increaseProduct = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decreaseProduct = () => {
+    setQuantity((prev) => prev - 1);
   };
 
   return (
@@ -53,12 +61,17 @@ const Product = ({ product }: ProductProps) => {
       </div>
 
       <div className="flex items-center gap-1 text-zinc-100 mb-4">
-        <Button size="icon" variant="outline">
+        <Button
+          className={`${quantity == 1 && "cursor-not-allowed"}`}
+          disabled={quantity == 1}
+          onClick={decreaseProduct}
+          size="icon"
+          variant="outline">
           <Minus size={16} />
         </Button>
-        <p className="text-[1.25rem] w-11 text-center">{product.quantity}</p>
+        <p className="text-[1.25rem] w-11 text-center">{quantity}</p>
 
-        <Button size="icon" variant="outline">
+        <Button onClick={increaseProduct} size="icon" variant="outline">
           <Plus size={16} />
         </Button>
       </div>
