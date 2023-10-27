@@ -1,3 +1,5 @@
+import { ArrowDown } from "lucide-react";
+
 const Hero = () => {
   return (
     <div className=" h-[70vh] flex items-center text-center flex-col w-full">
@@ -15,6 +17,8 @@ const Hero = () => {
       </p>
 
       <button className="button-primary w-[354px]">Ver Produtos</button>
+
+      <ArrowDown className="text-zinc-200 mt-24 animate-bounce" size={32} />
     </div>
   );
 };

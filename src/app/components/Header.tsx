@@ -14,7 +14,12 @@ import { ShoppingCart } from "@phosphor-icons/react/dist/ssr/ShoppingCart";
 import { useContext } from "react";
 import CartItem from "./CartItem";
 const Header = () => {
-  const { products } = useContext<any>(CartContext);
+  const { products, total } = useContext<any>(CartContext);
+
+  const formatedPrice = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(total);
 
   return (
     <header className=" mx-auto flex pt-8 pb-4 items-center justify-between text-zinc-100 border-b border-zinc-800">
@@ -63,32 +68,39 @@ const Header = () => {
             </div>
           ) : (
             <p className="text-zinc-200">
-              Você não adicionou nenhum produto no carrinho ainda.
+              Você não adicionou nenhum produto no carrinho ainda. Boas
+              compras!!
             </p>
           )}
 
-          <div className="w-full bg-zinc-800 h-[1px] rounded mt-8 mb-10" />
+          {products.length > 0 && (
+            <>
+              <div className="w-full bg-zinc-800 h-[1px] rounded mt-8 mb-10" />
 
-          <div className="text-zinc-200">
-            <div className="flex items-center justify-between">
-              <h2>Quantidade de produtos</h2>
-              <p className="text-zinc-50 font-semibold">{products.length}</p>
-            </div>
+              <div className="text-zinc-200">
+                <div className="flex items-center justify-between">
+                  <h2>Quantidade de produtos</h2>
+                  <p className="text-zinc-50 font-semibold">
+                    {products.length}
+                  </p>
+                </div>
 
-            <div className="w-full bg-zinc-800 h-[1px] rounded my-2" />
+                <div className="w-full bg-zinc-800 h-[1px] rounded my-2" />
 
-            <div className="flex items-center justify-between">
-              <h2>Taxa de entrega</h2>
-              <p className="text-zinc-50 font-semibold">GRÁTIS</p>
-            </div>
+                <div className="flex items-center justify-between">
+                  <h2>Taxa de entrega</h2>
+                  <p className="text-zinc-50 font-semibold">GRÁTIS</p>
+                </div>
 
-            <div className="w-full bg-zinc-800 h-[1px] rounded my-2" />
+                <div className="w-full bg-zinc-800 h-[1px] rounded my-2" />
 
-            <div className="flex items-center justify-between">
-              <h2>Preço Total</h2>
-              <p className="text-zinc-50 font-semibold">12999</p>
-            </div>
-          </div>
+                <div className="flex items-center justify-between">
+                  <h2>Preço Total</h2>
+                  <p className="text-zinc-50 font-semibold">{formatedPrice}</p>
+                </div>
+              </div>
+            </>
+          )}
         </SheetContent>
       </Sheet>
     </header>
