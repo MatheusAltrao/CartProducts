@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Product from "./components/Product";
@@ -27,14 +27,14 @@ export default function Home() {
         <Header />
         <Hero />
 
-        <div>
+        <div id="productList">
           <header className="text-center mb-20 ">
-            <h2 className="text-[32px] text-zinc-300">
+            <h2 className="text-[20px] sm:text-[32px] text-zinc-300">
               Conheça todos os nossos produtos!
             </h2>
-            <p className="text-[18px] text-zinc-600 mt-6  max-w-[630px] mx-auto">
-              Mergulhe em um mundo de variedade e possibilidades, oferecemos uma
-              ampla gama de produtos para atender às suas necessidades.
+            <p className="sm:text-[18px] text-zinc-600 mt-6  max-w-[630px] mx-auto">
+              Mergulhe em um mundo de variedade e possibilidades,prontos para
+              atender às suas necessidades.
             </p>
           </header>
 
@@ -45,19 +45,7 @@ export default function Home() {
           </div>
         </div>
 
-        <footer className="border-t border-zinc-800 pt-4 pb-8 mt-28">
-          <h3 className="text-zinc-200 text-[20px]">MatheuStore</h3>
-          <p className="text-zinc-400">©Todos os direitos reservados 2023</p>
-          <p className="text-zinc-400">
-            Desenvolvido com carinho por{" "}
-            <Link
-              className="text-gradient hover:brightness-110 transition-all duration-150"
-              target="_blank"
-              href="https://myportfolio-omega-nine.vercel.app/">
-              <span className="border-b border-zinc-400">Matheus Altrão</span>
-            </Link>
-          </p>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
