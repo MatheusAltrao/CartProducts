@@ -42,7 +42,7 @@ const Product = ({ product }: ProductProps) => {
   };
 
   return (
-    <div className="p-5 w-[300px] border border-zinc-700 rounded hover:border-violet-800 transition-colors">
+    <div className="p-5 w-[300px] border border-zinc-700 rounded hover:border-zinc-500 transition-colors">
       <h3 className="font-semibold text-xl tracking-tight text-zinc-200">
         {product.name}
       </h3>
@@ -77,7 +77,7 @@ const Product = ({ product }: ProductProps) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <span className="text-2xl font-bold text-zinc-50">{formatedPrice}</span>
+        <span className="text-xl font-bold text-zinc-50">{formatedPrice}</span>
         <Button
           variant="outline"
           className="w-[130px]"
