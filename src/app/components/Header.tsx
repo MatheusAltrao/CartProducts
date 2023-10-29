@@ -14,7 +14,7 @@ import { ShoppingCart } from "@phosphor-icons/react/dist/ssr/ShoppingCart";
 import { useContext } from "react";
 import CartItem from "./CartItem";
 const Header = () => {
-  const { products, total } = useContext<any>(CartContext);
+  const { products, total, totalQuantity } = useContext<any>(CartContext);
 
   const formatedPrice = new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -80,9 +80,7 @@ const Header = () => {
               <div className="text-zinc-200">
                 <div className="flex items-center justify-between">
                   <h2>Quantidade de produtos</h2>
-                  <p className="text-zinc-50 font-semibold">
-                    {products.length}
-                  </p>
+                  <p className="text-zinc-50 font-semibold">{totalQuantity}</p>
                 </div>
 
                 <div className="w-full bg-zinc-800 h-[1px] rounded my-2" />
