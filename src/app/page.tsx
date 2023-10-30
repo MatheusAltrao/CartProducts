@@ -7,18 +7,18 @@ import Product from "./components/Product";
 
 export default function Home() {
   const products = [
-    { id: 1, name: "Teclado", price: 59.99 },
-    { id: 2, name: "Mouse", price: 39.99 },
-    { id: 3, name: "Headset", price: 89.99 },
-    { id: 4, name: "Monitor", price: 209.99 },
-    { id: 5, name: "Notebook", price: 809.99 },
-    { id: 6, name: "Smartphone", price: 509.99 },
-    { id: 7, name: "Tablet", price: 159.99 },
-    { id: 8, name: "Câmera", price: 129.99 },
-    { id: 9, name: "Fone de Ouvido", price: 49.99 },
-    { id: 10, name: "MousePad", price: 49.99 },
-    { id: 11, name: "Caixa de Som", price: 49.99 },
-    { id: 12, name: "Leds", price: 49.99 },
+    { id: 1, name: "Teclado", quantity: 1, price: 59.99 },
+    { id: 2, name: "Mouse", quantity: 1, price: 39.99 },
+    { id: 3, name: "Headset", quantity: 1, price: 89.99 },
+    { id: 4, name: "Monitor", quantity: 1, price: 209.99 },
+    { id: 5, name: "Notebook", quantity: 1, price: 809.99 },
+    { id: 6, name: "Smartphone", quantity: 1, price: 509.99 },
+    { id: 7, name: "Tablet", quantity: 1, price: 159.99 },
+    { id: 8, name: "Câmera", quantity: 1, price: 129.99 },
+    { id: 9, name: "Fone de Ouvido", quantity: 1, price: 49.99 },
+    { id: 10, name: "MousePad", quantity: 1, price: 49.99 },
+    { id: 11, name: "Caixa de Som", quantity: 1, price: 49.99 },
+    { id: 12, name: "Leds", quantity: 1, price: 49.99 },
   ];
 
   return (
