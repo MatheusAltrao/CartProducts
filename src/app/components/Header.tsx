@@ -14,7 +14,7 @@ import { ShoppingCart } from "@phosphor-icons/react/dist/ssr/ShoppingCart";
 import { useContext } from "react";
 import CartItem from "./CartItem";
 const Header = () => {
-  const { products, total, totalQuantity } = useContext<any>(CartContext);
+  const { products, total, totalQuantity } = useContext(CartContext);
 
   const formatedPrice = new Intl.NumberFormat("pt-BR", {
     style: "currency",

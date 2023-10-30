@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { CartContext } from "@/context/CartContext";
+import { CartContext, CartProduct } from "@/context/CartContext";
 import { Minus, Plus, Trash } from "lucide-react";
 import { useContext } from "react";
 
 interface CartItemProps {
-  products: any;
+  products: CartProduct;
 }
 
 const CartItem = ({ products }: CartItemProps) => {

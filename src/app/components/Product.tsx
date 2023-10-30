@@ -1,12 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { CartContext } from "@/context/CartContext";
+import { CartContext, CartProduct } from "@/context/CartContext";
 import { CheckCircle } from "@phosphor-icons/react";
 import { Star } from "@phosphor-icons/react/dist/ssr/Star";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { useContext, useState } from "react";
 interface ProductProps {
-  product: any;
+  product: CartProduct;
 }
 
 const Product = ({ product }: ProductProps) => {
