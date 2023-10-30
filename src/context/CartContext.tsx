@@ -57,7 +57,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    console.log("Lista de produtos foi alterada:", products);
+    console.log(products);
   }, [products]);
 
   const decreaseProductQuantity = (productId: number) => {
